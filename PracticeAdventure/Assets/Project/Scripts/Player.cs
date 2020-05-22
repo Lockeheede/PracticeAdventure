@@ -13,12 +13,21 @@ public class Player : MonoBehaviour
     public float movingVelocity;
     public float jumpVelocity;
 
+    [Header("Equipment")]
+    public Sword sword;
+    public Bow bow;
+    public GameObject bombPrefab;
+    public float throwingSpeed;
+    public int bombAmount = 5;
+    public int arrowAmount = 15;
+
     private Rigidbody playerRigidbody;
     private bool canJump = false;
     private Quaternion targetModelRotation;
 
     void Start()
     {
+        bow.gameObject.SetActive(false);
         playerRigidbody = GetComponent<Rigidbody>();
         targetModelRotation = Quaternion.Euler(0, 0, 0);
     }
@@ -53,7 +62,7 @@ public class Player : MonoBehaviour
            playerRigidbody.velocity.y,
            playerRigidbody.velocity.z
            );
-            targetModelRotation = Quaternion.Euler(0, 270, 0);
+            targetModelRotation = Quaternion.Euler(0, 90, 0);
         }
 
         if (Input.GetKey("left"))
@@ -63,7 +72,7 @@ public class Player : MonoBehaviour
            playerRigidbody.velocity.y,
            playerRigidbody.velocity.z
            );
-            targetModelRotation = Quaternion.Euler(0, 90, 0);
+            targetModelRotation = Quaternion.Euler(0, 270, 0);
         }
 
         if (Input.GetKey("up"))
@@ -73,7 +82,7 @@ public class Player : MonoBehaviour
            playerRigidbody.velocity.y,
            movingVelocity
            );
-            targetModelRotation = Quaternion.Euler(0, 180, 0);
+            targetModelRotation = Quaternion.Euler(0, 0, 0);
         }
 
         if (Input.GetKey("down"))
@@ -83,7 +92,7 @@ public class Player : MonoBehaviour
             playerRigidbody.velocity.y,
             -movingVelocity
             );
-            targetModelRotation = Quaternion.Euler(0, 0, 0);
+            targetModelRotation = Quaternion.Euler(0, 180, 0);
         }
 
         //Check for jumps
@@ -96,5 +105,47 @@ public class Player : MonoBehaviour
                 playerRigidbody.velocity.z
                 );
         }
+
+        //Check equipment interaction
+        if (Input.GetKeyDown("z"))
+        {
+            sword.gameObject.SetActive(true);
+            bow.gameObject.SetActive(false);
+            sword.Attack();
+        }
+
+        if(Input.GetKeyDown("c"))
+        {
+            ThrowBomb();
+        }
+
+        if(Input.GetKeyDown("x"))
+        {
+            sword.gameObject.SetActive(false);
+            bow.gameObject.SetActive(true);
+            if (arrowAmount > 0)
+            {
+                bow.Attack();
+                arrowAmount--;
+            }
+          
+        }
+    }
+
+    private void ThrowBomb()
+    {
+        if(bombAmount <= 0)
+        {
+            return;
+        }
+
+        GameObject bombObject = Instantiate(bombPrefab);
+        bombObject.transform.position = transform.position + model.transform.forward;
+
+        Vector3 throwingDirection = (model.transform.forward + Vector3.up).normalized;
+
+        bombObject.GetComponent<Rigidbody>().AddForce(throwingDirection * throwingSpeed);
+
+        bombAmount--;
     }
 }
