@@ -14,6 +14,14 @@ public class Sword : MonoBehaviour
     private float cooldownTimer;
     private bool isAttacking;
 
+    public bool IsAttacking
+    {
+        get
+        {
+            return isAttacking;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +43,7 @@ public class Sword : MonoBehaviour
             return;
         }
 
-        targetRotation = Quaternion.Euler(90, 0, 0);
+        targetRotation = Quaternion.Euler(110, 0, 0);
 
         cooldownTimer = cooldownDuration;
 

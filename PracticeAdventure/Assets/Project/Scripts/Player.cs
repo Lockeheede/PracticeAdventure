@@ -12,8 +12,10 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     public float movingVelocity;
     public float jumpVelocity;
+    public float knockbackForce;
 
     [Header("Equipment")]
+    public int health = 12;
     public Sword sword;
     public Bow bow;
     public GameObject bombPrefab;
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
     private Rigidbody playerRigidbody;
     private bool canJump = false;
     private Quaternion targetModelRotation;
+    private float knockBackTimer;
 
     void Start()
     {
@@ -41,7 +44,14 @@ public class Player : MonoBehaviour
         }
         model.transform.rotation = Quaternion.Lerp(model.transform.rotation, targetModelRotation, Time.deltaTime * rotatingSpeed);
 
-        ProcessInput();
+        if (knockBackTimer > 0)
+        {
+            knockBackTimer -= Time.deltaTime;
+        }
+        else
+        {
+            ProcessInput();
+        }
     }
 
     void ProcessInput()
@@ -147,5 +157,34 @@ public class Player : MonoBehaviour
         bombObject.GetComponent<Rigidbody>().AddForce(throwingDirection * throwingSpeed);
 
         bombAmount--;
+    }
+
+    private void OnTriggerEnter(Collider otherCollider)
+    {
+        if(otherCollider.GetComponent<EnemyBullet> () != null)
+        {
+            Hit((transform.position - otherCollider.transform.position).normalized);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<Enemy>() != null)
+        {
+            Hit((transform.position - collision.transform.position).normalized);
+        }
+    }
+
+    private void Hit(Vector3 direction)
+    {
+        Vector3 knockbackDirection = (direction + Vector3.up).normalized;
+        playerRigidbody.AddForce(knockbackDirection * knockbackForce);
+        knockBackTimer = 1f;
+       
+        health--;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
