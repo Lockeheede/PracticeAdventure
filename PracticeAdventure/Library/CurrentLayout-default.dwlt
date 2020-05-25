@@ -48,7 +48,11 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 21
+=======
+  controlID: 131
+>>>>>>> be4e8df21acb9213ec1091f933cb2c4ce7df8dc8
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +223,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 22
+=======
+  controlID: 65
+>>>>>>> be4e8df21acb9213ec1091f933cb2c4ce7df8dc8
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +252,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 23
+=======
+  controlID: 66
+>>>>>>> be4e8df21acb9213ec1091f933cb2c4ce7df8dc8
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,20 +350,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Project/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/Project/Scripts
+=======
+    - Assets
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+>>>>>>> be4e8df21acb9213ec1091f933cb2c4ce7df8dc8
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\01_Projects\Games\PracticeAdventure\PracticeAdventure
+  m_LastProjectPath: D:\03_Projects\Games\SourceTree\11_PracticeAdventure\PracticeAdventure
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: a8370000
     m_LastClickedID: 14248
     m_ExpandedIDs: 00000000903700009c370000
+=======
+    m_SelectedIDs: f4350000
+    m_LastClickedID: 13812
+    m_ExpandedIDs: 00000000f435000000ca9a3b
+>>>>>>> be4e8df21acb9213ec1091f933cb2c4ce7df8dc8
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -379,7 +405,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000090370000
+=======
+    m_ExpandedIDs: 00000000f4350000
+>>>>>>> be4e8df21acb9213ec1091f933cb2c4ce7df8dc8
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -406,7 +436,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -504,7 +534,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: 46fbffff
+=======
+      m_ExpandedIDs: 60f7ffff
+>>>>>>> be4e8df21acb9213ec1091f933cb2c4ce7df8dc8
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
