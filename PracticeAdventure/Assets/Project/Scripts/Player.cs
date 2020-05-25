@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 public class Player : MonoBehaviour
 {
     [Header("Visuals")]
