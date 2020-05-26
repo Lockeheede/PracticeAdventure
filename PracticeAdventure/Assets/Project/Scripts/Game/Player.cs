@@ -7,9 +7,10 @@ public class Player : MonoBehaviour
     [Header("Visuals")]
     public GameObject model;
     public float rotatingSpeed = 2f;
+    public float speed = 5.0f;
 
     [Header("Movement")]
-    public float movingVelocity;
+    public float movingVelocity = 50f;
     public float jumpVelocity;
     public float knockbackForce;
 
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
     private bool canJump = false;
     private Quaternion targetModelRotation;
     private float knockBackTimer;
+
+    //Testing For Gamepad Input
 
     void Start()
     {
@@ -55,15 +58,16 @@ public class Player : MonoBehaviour
 
     void ProcessInput()
     {
-        //Move in the XZ Axes
-        
-        //Netural Movement, followed by right, left, up and down
-        playerRigidbody.velocity = new Vector3(
-           0,
-           playerRigidbody.velocity.y,
-           0
-           );
+        float moveHorizontal = Input.GetAxisRaw("LeftJoystickHorizontal") * movingVelocity * Time.deltaTime;
+        float moveVertical = Input.GetAxisRaw("LeftJoystickVertical") * movingVelocity * Time.deltaTime;
 
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        transform.LookAt(transform.position + movement);
+
+
+        playerRigidbody.MovePosition(transform.position + movement);
+
+        /*OLD WAY WITH KEY BOARD
         if (Input.GetKey("right"))
         {
            playerRigidbody.velocity = new Vector3(
@@ -103,9 +107,10 @@ public class Player : MonoBehaviour
             );
             targetModelRotation = Quaternion.Euler(0, 180, 0);
         }
+        */
 
         //Check for jumps
-        if (canJump && Input.GetKeyDown("space"))
+        if (canJump && Input.GetButton("SouthButton"))
         {
             canJump = false;
             playerRigidbody.velocity = new Vector3(
@@ -116,19 +121,19 @@ public class Player : MonoBehaviour
         }
 
         //Check equipment interaction
-        if (Input.GetKeyDown("z"))
+        if (Input.GetButtonDown("EastButton"))
         {
             sword.gameObject.SetActive(true);
             bow.gameObject.SetActive(false);
             sword.Attack();
         }
 
-        if(Input.GetKeyDown("c"))
+        if(Input.GetButtonDown("WestButton"))
         {
             ThrowBomb();
         }
 
-        if(Input.GetKeyDown("x"))
+        if(Input.GetButtonDown("NorthButton"))
         {
             sword.gameObject.SetActive(false);
             bow.gameObject.SetActive(true);
