@@ -58,16 +58,8 @@ public class Player : MonoBehaviour
 
     void ProcessInput()
     {
-        float moveHorizontal = Input.GetAxisRaw("LeftJoystickHorizontal") * movingVelocity * Time.deltaTime;
-        float moveVertical = Input.GetAxisRaw("LeftJoystickVertical") * movingVelocity * Time.deltaTime;
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        transform.LookAt(transform.position + movement);
-
-
-        playerRigidbody.MovePosition(transform.position + movement);
-
-        /*OLD WAY WITH KEY BOARD
+        /*OLD WAY WITH KEY BOARD*/
         if (Input.GetKey("right"))
         {
            playerRigidbody.velocity = new Vector3(
@@ -107,10 +99,10 @@ public class Player : MonoBehaviour
             );
             targetModelRotation = Quaternion.Euler(0, 180, 0);
         }
-        */
+        
 
         //Check for jumps
-        if (canJump && Input.GetButton("SouthButton"))
+        if (canJump && Input.GetKey("space"))
         {
             canJump = false;
             playerRigidbody.velocity = new Vector3(
@@ -121,19 +113,19 @@ public class Player : MonoBehaviour
         }
 
         //Check equipment interaction
-        if (Input.GetButtonDown("EastButton"))
+        if (Input.GetKeyDown("z"))
         {
             sword.gameObject.SetActive(true);
             bow.gameObject.SetActive(false);
             sword.Attack();
         }
 
-        if(Input.GetButtonDown("WestButton"))
+        if(Input.GetKeyDown("c"))
         {
             ThrowBomb();
         }
 
-        if(Input.GetButtonDown("NorthButton"))
+        if(Input.GetKeyDown("x"))
         {
             sword.gameObject.SetActive(false);
             bow.gameObject.SetActive(true);
@@ -145,6 +137,7 @@ public class Player : MonoBehaviour
           
         }
     }
+
 
     private void ThrowBomb()
     {
