@@ -233,7 +233,7 @@ PrefabInstance:
     - target: {fileID: 2909150086269494850, guid: 118995515be8be74589b1e2a6bac2894,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 324
+      value: 337.53
       objectReference: {fileID: 0}
     - target: {fileID: 2909150086269494850, guid: 118995515be8be74589b1e2a6bac2894,
         type: 3}
@@ -299,6 +299,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3980803210229734824, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
+        type: 3}
+      propertyPath: offset.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980803210229734824, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
+        type: 3}
+      propertyPath: offset.z
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 3980803210229734825, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -317,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 3980803210229734825, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17364816
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3980803210229734825, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
         type: 3}
@@ -332,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 3980803210229734825, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9848078
+      value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: 3980803210229734825, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
         type: 3}
@@ -342,7 +352,7 @@ PrefabInstance:
     - target: {fileID: 3980803210229734825, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3980803210229734825, guid: ebd9d9f09c2aa534e92c37c94ac8c426,
         type: 3}
