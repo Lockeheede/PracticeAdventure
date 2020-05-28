@@ -282,5 +282,5 @@ MonoBehaviour:
   directions:
   - {x: 1, y: 0, z: 0}
   - {x: -1, y: 0, z: 0}
-  timeToChange: 1
-  movementSpeed: 4
+  timeToChange: 0.5
+  movementSpeed: 30

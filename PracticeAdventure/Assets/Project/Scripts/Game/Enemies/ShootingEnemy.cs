@@ -9,7 +9,7 @@ public class ShootingEnemy : Enemy
     public float rotationSpeed = 6f;
     
     public GameObject bulletPrefab;
-    public float timeToShoot = 1f;
+    public float timeToShoot = 2f;
 
     private int targetAngle;
     private float rotationTimer;
