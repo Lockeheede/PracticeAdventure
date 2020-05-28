@@ -27,6 +27,17 @@ public class Player : MonoBehaviour
     private bool canJump = false;
     private Quaternion targetModelRotation;
     private float knockBackTimer;
+    private bool justTeleported;
+
+    public bool JustTeleported
+    {
+        get
+        {
+            bool returnValue = justTeleported;
+            justTeleported = false;
+            return returnValue;
+        }
+    }
 
     //Testing For Gamepad Input
 
@@ -184,5 +195,11 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Teleport(Vector3 target)
+    {
+        transform.position = target;
+        justTeleported = true;
     }
 }

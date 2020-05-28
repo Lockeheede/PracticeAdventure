@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class GameCamera : MonoBehaviour
 {
-    public GameObject target;
+    public Player player;
     public Vector3 offset;
     public float focusSpeed = 1f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (player != null)
         {
-            transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, Time.deltaTime * focusSpeed);
+            transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, Time.deltaTime * focusSpeed);
             //offset coordinates for level1 (1, 2.7, -5.3) Rotation: x= 20
+
+        if (player.JustTeleported)
+            {
+              transform.position = player.transform.position + offset;
+            }
         }
     }
 }
