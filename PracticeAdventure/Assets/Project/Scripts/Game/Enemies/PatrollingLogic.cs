@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatrollingLogic : MonoBehaviour
 {
     public Vector3[] directions;
-    public float timeToChange = 1f;
+    public float timeToChange = 4f;
     public float movementSpeed;
 
     private int directionPointer;
